@@ -9,22 +9,29 @@ const splineSans = Spline_Sans({
 })
 
 export const metadata: Metadata = {
-  title: '고민성 & 하세진의 결혼식',
+  title: '고민성 ❤️ 하세진',
   description: '2026년 3월 14일 토요일 오전 11시, 제주 호텔난타. 두 사람의 아름다운 시작을 함께해주세요.',
   openGraph: {
-    title: '고민성 & 하세진의 결혼식',
-    description: '2026년 3월 14일 토요일 오전 11시, 제주 호텔난타. 두 사람의 아름다운 시작을 함께해주세요.',
-    url: 'https://mobile-web-invitation.vercel.app', // 나중에 실제 배포 주소로 변경 필요
-    siteName: 'Netflix Wedding Invitation',
+    title: '고민성 ❤️ 하세진',
+    description: '03. 14. SAT. AM 11:00. 제주 호텔난타. 저희 두 사람의 시작을 축복해주세요.',
+    url: 'https://mobile-web-invitation.vercel.app',
+    siteName: '고민성 ❤️ 하세진',
     images: [
       {
         url: 'https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/GWA02445.jpg',
-        width: 1200,
-        height: 630,
+        width: 800,
+        height: 400,
+        alt: '고민성 ❤️ 하세진 초대장',
       },
     ],
     locale: 'ko_KR',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '고민성 ❤️ 하세진 우리 결혼합니다',
+    description: '2026. 03. 14. SAT. AM 11:00. 제주 호텔난타.',
+    images: ['https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/GWA02445.jpg'],
   },
 }
 
@@ -40,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="ko" className="dark" suppressHydrationWarning>
       <head>
           <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
       </head>
