@@ -5,6 +5,7 @@ import Episodes from "@/components/ui/Episodes";
 import EventGrid from "@/components/ui/EventGrid";
 import CastMembers from "@/components/ui/CastMembers";
 import Guestbook from "@/components/ui/Guestbook";
+import TransportInfo from "@/components/ui/TransportInfo";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
              <Trailer />
              <Episodes />
              <EventGrid />
+             <TransportInfo />
              <CastMembers />
              <Guestbook />
         </div>

@@ -21,7 +21,7 @@ export default function EventGrid() {
 
   return (
     <section className="px-4 mb-20 scroll-mt-20" id="event">
-      <h3 className="text-white font-bold text-lg mb-6 pl-1 border-l-4 border-primary leading-none">Event Details</h3>
+      <h3 className="text-white font-bold text-lg mb-6 pl-1 border-l-4 border-primary leading-none">상세 내용</h3>
       
       <div className="space-y-8">
         {/* WHEN Section */}

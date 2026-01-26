@@ -54,7 +54,7 @@ export default function Guestbook() {
 
   return (
     <section className="px-4 pb-4 scroll-mt-20" id="guestbook">
-      <h3 className="text-white font-bold text-lg mb-6 pl-1 border-l-4 border-primary leading-none">Guestbook</h3>
+      <h3 className="text-white font-bold text-lg mb-6 pl-1 border-l-4 border-primary leading-none">기대평</h3>
       <div className="space-y-4 mb-6">
         {entries.length === 0 ? (
            <div className="text-center text-zinc-500 text-xs py-4 bg-surface/30 rounded-lg">

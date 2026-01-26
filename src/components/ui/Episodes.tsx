@@ -44,6 +44,7 @@ export default function Episodes() {
                     src={ep.image}
                     alt={ep.title}
                     fill
+                    sizes="256px"
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">

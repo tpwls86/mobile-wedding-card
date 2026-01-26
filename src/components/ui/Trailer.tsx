@@ -13,6 +13,7 @@ export default function Trailer() {
                 src="https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/trailer-thumb.jpg"
                 alt="Wedding Trailer"
                 fill
+                sizes="(max-width: 768px) 100vw, 448px"
                 className="object-cover"
             />
         </div>

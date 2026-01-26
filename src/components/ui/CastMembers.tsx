@@ -40,7 +40,7 @@ export default function CastMembers() {
 
   return (
     <section className="mb-20 px-4 scroll-mt-20" id="cast">
-      <h3 className="text-white font-bold text-lg mb-6 pl-1 border-l-4 border-primary leading-none">Cast Members</h3>
+      <h3 className="text-white font-bold text-lg mb-6 pl-1 border-l-4 border-primary leading-none">출연진</h3>
       
       {/* 1. Main Cast (Bride & Groom) */}
       <div className="flex justify-center items-center gap-6 mb-8">

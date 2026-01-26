@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 interface WeddingDetailsModalProps {
@@ -9,6 +9,36 @@ interface WeddingDetailsModalProps {
 }
 
 export default function WeddingDetailsModal({ isOpen, onClose }: WeddingDetailsModalProps) {
+  const [isLiked, setIsLiked] = useState(false);
+  const [isAnimate, setIsAnimate] = useState(false);
+
+  const handleLike = () => {
+    setIsLiked(!isLiked);
+    setIsAnimate(true);
+    setTimeout(() => setIsAnimate(false), 500);
+  };
+
+  const handleShare = async () => {
+    const shareData = {
+      title: '고민성 & 하세진의 결혼식',
+      text: '저희 두 사람의 소중한 시작을 함께하는 자리에 귀한 발걸음 하시어 축복해 주시면 더없는 기쁨으로 간직하겠습니다.',
+      url: window.location.href,
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        await navigator.clipboard.writeText(window.location.href);
+        alert('링크가 클립보드에 복사되었습니다.');
+      }
+    } catch (err) {
+      if ((err as Error).name !== 'AbortError') {
+        console.error('공유 실패:', err);
+      }
+    }
+  };
+
   // 모달 열렸을 때 배경 스크롤 막기
   useEffect(() => {
     if (isOpen) {
@@ -24,7 +54,7 @@ export default function WeddingDetailsModal({ isOpen, onClose }: WeddingDetailsM
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
+    <div className="fixed inset-0 z-[100] flex items-start justify-center px-4 pt-10">
       {/* Backdrop - made lighter (60% opacity) */}
       <div 
         className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
@@ -32,7 +62,7 @@ export default function WeddingDetailsModal({ isOpen, onClose }: WeddingDetailsM
       ></div>
 
       {/* Modal Content - made lighter (zinc-900 instead of #181818) */}
-      <div className="relative bg-zinc-900 w-full max-w-md rounded-lg overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-300 border border-white/10">
+      <div className="relative bg-zinc-900 w-full max-w-md max-h-[85dvh] overflow-y-auto no-scrollbar rounded-lg shadow-2xl animate-in fade-in zoom-in duration-300 border border-white/10">
         {/* Close Button */}
         <button 
             onClick={onClose}
@@ -47,13 +77,17 @@ export default function WeddingDetailsModal({ isOpen, onClose }: WeddingDetailsM
                 src="https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/GWA03358.jpg"
                 alt="Wedding Still"
                 fill
+                sizes="(max-width: 768px) 100vw, 448px"
                 className="object-cover opacity-90"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent"></div>
-            <div className="absolute bottom-4 left-4">
-                <h2 className="text-2xl font-black italic tracking-tighter text-white drop-shadow-lg">
+            <div className="flex flex-row items-end absolute bottom-4 left-4">
+                <h2 className="text-2xl font-black italic tracking-tighter text-white drop-shadow-lg mr-4">
                     THE WEDDING
                 </h2>
+                <h5 className="text-[10px] font-black italic tracking-tighter text-white drop-shadow-lg mb-1">
+                    In Jeju
+                </h5>
             </div>
         </div>
 
@@ -104,11 +138,19 @@ export default function WeddingDetailsModal({ isOpen, onClose }: WeddingDetailsM
                     <span className="material-symbols-outlined text-xl">add</span>
                     <span className="text-[10px]">내 리스트</span>
                 </div>
-                <div className="flex-1 flex flex-col items-center gap-1 cursor-pointer hover:text-white text-zinc-400 transition-colors">
-                    <span className="material-symbols-outlined text-xl">thumb_up</span>
-                    <span className="text-[10px]">평가</span>
+                <div 
+                    onClick={handleLike}
+                    className={`flex-1 flex flex-col items-center gap-1 cursor-pointer transition-all duration-300 ${isLiked ? 'text-primary' : 'hover:text-white text-zinc-400'}`}
+                >
+                    <span className={`material-symbols-outlined text-xl transition-transform duration-300 ${isAnimate ? 'scale-150 rotate-12' : 'scale-100'} ${isLiked ? 'filled' : ''}`}>
+                        thumb_up
+                    </span>
+                    <span className="text-[10px]">{isLiked ? '평가됨' : '평가'}</span>
                 </div>
-                <div className="flex-1 flex flex-col items-center gap-1 cursor-pointer hover:text-white text-zinc-400 transition-colors">
+                <div 
+                    onClick={handleShare}
+                    className="flex-1 flex flex-col items-center gap-1 cursor-pointer hover:text-white text-zinc-400 transition-colors"
+                >
                     <span className="material-symbols-outlined text-xl">share</span>
                     <span className="text-[10px]">공유</span>
                 </div>
