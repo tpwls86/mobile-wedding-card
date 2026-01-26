@@ -53,43 +53,65 @@ export default function Guestbook() {
   };
 
   return (
-    <section className="px-4 pb-4 scroll-mt-20" id="guestbook">
-      <h3 className="text-white font-bold text-lg mb-6 pl-1 border-l-4 border-primary leading-none">기대평</h3>
-      <div className="space-y-4 mb-6">
+    <section className="px-4 pb-10" id="guestbook">
+      <div className="flex items-center justify-between mb-8">
+        <h3 className="text-white font-bold text-lg leading-none uppercase tracking-tighter border-b-2 border-primary pb-1">Audience Reviews</h3>
+        <span className="text-zinc-500 text-[10px] font-bold uppercase tracking-widest">{entries.length} Messages</span>
+      </div>
+
+      {/* Review List */}
+      <div className="space-y-4 mb-12">
         {entries.length === 0 ? (
-           <div className="text-center text-zinc-500 text-xs py-4 bg-surface/30 rounded-lg">
-            첫번째 방명록을 남겨주세요!
-           </div>
+          <div className="text-center py-10 bg-zinc-900/30 rounded-xl border border-white/5">
+            <p className="text-zinc-600 text-xs italic">"첫 번째 관람평을 남겨주세요."</p>
+          </div>
         ) : (
           entries.map((entry) => (
-            <div key={entry.id} className="p-3 bg-surface/50 rounded-lg border-l-2 border-primary">
-              <p className="text-sm font-bold mb-1">{entry.name}</p>
-              <p className="text-xs text-zinc-400">"{entry.message}"</p>
+            <div key={entry.id} className="p-4 bg-zinc-900/40 rounded-xl border border-white/5 hover:bg-zinc-900/60 transition-colors">
+              <div className="flex items-center justify-between mb-2">
+                <p className="text-xs font-black text-zinc-100 uppercase tracking-tight">
+                  {entry.name} <span className="text-zinc-600 font-medium ml-1">관객</span>
+                </p>
+                <span className="text-[10px] text-zinc-600 font-medium">
+                  {new Date(entry.created_at).toLocaleDateString()}
+                </span>
+              </div>
+              <p className="text-sm text-zinc-400 leading-relaxed font-medium">
+                {entry.message}
+              </p>
             </div>
           ))
         )}
       </div>
-      <div className="relative">
-        <input 
-            type="text" 
-            placeholder="Your Name" 
-            className="w-full bg-surface border border-white/10 rounded-lg p-3 text-sm focus:ring-1 focus:ring-primary focus:border-primary outline-none mb-2"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-        />
-        <textarea
-          className="w-full bg-surface border border-white/10 rounded-lg p-3 text-sm focus:ring-1 focus:ring-primary focus:border-primary outline-none min-h-[100px]"
-          placeholder="Leave a message for the couple..."
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        ></textarea>
-        <button 
-            onClick={handleSubmit} 
-            disabled={loading}
-            className="mt-2 w-full bg-primary text-white py-3 rounded-md font-bold text-sm disabled:opacity-50 hover:bg-red-700 transition-colors"
-        >
-          {loading ? '등록중...' : '등록'}
-        </button>
+
+      {/* Input Area */}
+      <div className="bg-zinc-900/50 p-6 rounded-2xl border border-white/5">
+        <p className="text-zinc-100 font-bold text-xs mb-5 uppercase tracking-widest flex items-center gap-2">
+            관람평 작성
+        </p>
+        
+        <div className="space-y-3">
+          <input 
+              type="text" 
+              placeholder="성함" 
+              className="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-sm focus:border-zinc-500 outline-none transition-all placeholder:text-zinc-700 text-zinc-200"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+          />
+          <textarea
+            className="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-sm focus:border-zinc-500 outline-none min-h-[100px] transition-all placeholder:text-zinc-700 resize-none text-zinc-200"
+            placeholder="축하의 메시지를 남겨주세요."
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          ></textarea>
+          <button 
+              onClick={handleSubmit} 
+              disabled={loading}
+              className="w-full bg-zinc-100 text-black py-3 rounded-lg font-bold text-xs disabled:opacity-50 hover:bg-white active:scale-[0.98] transition-all uppercase tracking-widest"
+          >
+            {loading ? '전송 중...' : '등록하기'}
+          </button>
+        </div>
       </div>
     </section>
   );

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: '고민성 ❤️ 하세진',
     images: [
       {
-        url: 'https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/GWA02445.jpg',
+        url: '/images/SEO_PIC.jpg',
         width: 800,
         height: 400,
         alt: '고민성 ❤️ 하세진 초대장',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '고민성 ❤️ 하세진 우리 결혼합니다',
     description: '2026. 03. 14. SAT. AM 11:00. 제주 호텔난타.',
-    images: ['https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/GWA02445.jpg'],
+    images: ['/images/SEO_PIC.jpg'],
   },
 }
 

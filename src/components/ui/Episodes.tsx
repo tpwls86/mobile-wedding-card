@@ -29,9 +29,9 @@ export default function Episodes() {
   return (
     <section className="mb-8" id="story">
       <div className="flex justify-between items-end px-4 mb-2">
-        <h3 className="text-white font-bold text-lg">Our Story</h3>
+        <h3 className="text-white font-bold text-lg">우리들의 시간</h3>
         <Link href="/gallery" className="text-zinc-500 text-[11px] font-black hover:text-primary transition-colors tracking-tighter">
-            SEE ALL &gt;
+            모두 보기 &gt;
         </Link>
       </div>
       

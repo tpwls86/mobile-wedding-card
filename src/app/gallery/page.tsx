@@ -43,7 +43,19 @@ export default function GalleryPage() {
 
       {/* Main Image Viewer */}
       <div className="flex-1 min-h-0 relative flex items-center justify-center p-6 pb-2">
-        <div className="relative w-full h-full max-w-sm rounded-lg overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-white/5 bg-zinc-900 group">
+        {/* Background Blurred Image */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <Image
+            src={WEDDING_IMAGES[selectedIndex]}
+            alt="Background"
+            fill
+            className="object-cover blur-lg opacity-30 scale-110 transition-all duration-700"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
+
+        <div className="relative w-full h-full group z-10 transition-all duration-500">
           <Image
             src={WEDDING_IMAGES[selectedIndex]}
             alt={`Wedding Photo ${selectedIndex + 1}`}

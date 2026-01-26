@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function Trailer() {
   return (
     <section className="px-4 mb-8">
-      <h3 className="text-white font-bold text-lg mb-2 pl-1 border-l-4 border-primary leading-none">Trailer</h3>
+      <h3 className="text-white font-bold text-lg mb-2 pl-1 border-l-4 border-primary leading-none">트레일러</h3>
       <div className="relative w-full aspect-video bg-zinc-800 rounded-md overflow-hidden group cursor-pointer">
         {/* Placeholder for trailer thumbnail */}
         <div

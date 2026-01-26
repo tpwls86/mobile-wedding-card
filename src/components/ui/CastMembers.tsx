@@ -52,7 +52,7 @@ export default function CastMembers() {
                         src={groom.image}
                         alt="Groom"
                         fill
-                        className="object-cover"
+                        className="object-cover object-[center_30%]"
                     />
                 </div>
             </div>
@@ -77,7 +77,7 @@ export default function CastMembers() {
                         src={bride.image}
                         alt="Bride"
                         fill
-                        className="object-cover"
+                        className="object-cover object-[center_30%]"
                     />
                 </div>
             </div>

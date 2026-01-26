@@ -37,10 +37,6 @@ export default function Hero() {
         </div>
 
         <div className="flex w-full gap-3 max-w-sm">
-          <button className="flex-1 flex items-center justify-center gap-2 bg-white text-black py-3 rounded-[4px] font-bold text-sm transition-all active:scale-95 shadow-lg hover:bg-zinc-200">
-            <span className="material-symbols-outlined text-[24px] filled">play_arrow</span>
-            RSVP
-          </button>
           <button 
             onClick={() => setIsModalOpen(true)}
             className="flex-1 flex items-center justify-center gap-2 bg-zinc-600/70 text-white backdrop-blur-md py-3 rounded-[4px] font-bold text-sm transition-all active:scale-95 hover:bg-zinc-600/90"

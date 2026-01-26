@@ -4,7 +4,6 @@ import Trailer from "@/components/ui/Trailer";
 import Episodes from "@/components/ui/Episodes";
 import EventGrid from "@/components/ui/EventGrid";
 import CastMembers from "@/components/ui/CastMembers";
-import Guestbook from "@/components/ui/Guestbook";
 import TransportInfo from "@/components/ui/TransportInfo";
 
 export default function Home() {
@@ -23,7 +22,6 @@ export default function Home() {
              <EventGrid />
              <TransportInfo />
              <CastMembers />
-             <Guestbook />
         </div>
         
         {/* Footer Area */}
@@ -43,25 +41,19 @@ export default function Home() {
             <span className="text-[9px] text-white">Home</span>
           </a>
           
-          <a className="flex flex-col items-center gap-1 group w-14" href="#story">
+          <a className="flex flex-col items-center gap-1 group w-14" href="/gallery">
             <div className="group-active:scale-90 transition-transform">
                 <span className="material-symbols-outlined text-xl text-zinc-500 group-hover:text-white transition-colors">video_library</span>
             </div>
             <span className="text-[9px] text-zinc-500 group-hover:text-white transition-colors">Our Story</span>
           </a>
 
-          <a className="flex flex-col items-center gap-1 group w-14" href="#event">
-            <div className="group-active:scale-90 transition-transform">
-                <span className="material-symbols-outlined text-xl text-zinc-500 group-hover:text-white transition-colors">event_available</span>
-            </div>
-            <span className="text-[9px] text-zinc-500 group-hover:text-white transition-colors">RSVP</span>
-          </a>
 
-          <a className="flex flex-col items-center gap-1 group w-14" href="#guestbook">
+          <a className="flex flex-col items-center gap-1 group w-14" href="/more">
             <div className="group-active:scale-90 transition-transform">
                 <span className="material-symbols-outlined text-xl text-zinc-500 group-hover:text-white transition-colors">menu</span>
             </div>
-            <span className="text-[9px] text-zinc-500 group-hover:text-white transition-colors">More</span>
+            <span className="text-[9px] text-zinc-500 group-hover:text-white transition-colors">관람평</span>
           </a>
         </div>
       </nav>
