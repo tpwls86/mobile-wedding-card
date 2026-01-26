@@ -44,7 +44,7 @@ export default function RootLayout({
       <head>
           <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
       </head>
-      <body className={`${splineSans.variable} font-display bg-zinc-900 text-white selection:bg-primary/30`}>
+      <body className={`${splineSans.variable} font-display bg-black text-white selection:bg-primary/30`}>
         {children}
       </body>
     </html>

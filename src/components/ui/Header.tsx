@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <header className="absolute top-0 z-50 w-full flex items-center justify-between px-4 py-4">
+    <header className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-md z-50 transition-all duration-300 flex items-center justify-between px-4 py-4">
       <div className="flex items-center gap-1">
         <div className="bg-primary text-black px-1.5 py-0.5 font-black text-xl leading-none rounded-sm">
           SJ & MS

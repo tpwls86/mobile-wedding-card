@@ -12,7 +12,7 @@ export default function Home() {
       <Header />
       
       {/* Scrollable Main Content */}
-      <main className="pb-20 relative z-10 w-full">
+      <main className="max-w-md mx-auto pb-20 relative z-10 w-full">
         <Hero />
         
         {/* Overlapping Content Start */}
@@ -27,7 +27,7 @@ export default function Home() {
         {/* Footer Area */}
         <footer className="px-6 pb-24 text-center text-zinc-700 text-[10px]">
             <p>Running Time: Forever</p>
-            <p className="mt-2">© 2024 Jihun & Minji Wedding.</p>
+            <p className="mt-2">© 2026 Minseong & Sejin Wedding.</p>
         </footer>
       </main>
 

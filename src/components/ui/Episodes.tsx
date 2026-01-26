@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Episodes() {
   const episodes = [
@@ -29,7 +30,9 @@ export default function Episodes() {
     <section className="mb-8" id="story">
       <div className="flex justify-between items-end px-4 mb-2">
         <h3 className="text-white font-bold text-lg">Our Story</h3>
-        <span className="text-primary text-[10px] font-bold tracking-wider">SEE ALL</span>
+        <Link href="/gallery" className="text-zinc-500 text-[11px] font-black hover:text-primary transition-colors tracking-tighter">
+            SEE ALL &gt;
+        </Link>
       </div>
       
       <div className="flex overflow-x-auto no-scrollbar gap-4 snap-x ml-4">
