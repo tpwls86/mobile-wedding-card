@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Spline_Sans } from 'next/font/google'
 import './globals.css'
 
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: 'Netflix Wedding Invitation',
     images: [
       {
-        url: '/wedding-images/GWA02445.jpg',
+        url: 'https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/GWA02445.jpg',
         width: 1200,
         height: 630,
       },
@@ -26,11 +26,12 @@ export const metadata: Metadata = {
     locale: 'ko_KR',
     type: 'website',
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 }
 
 export default function RootLayout({

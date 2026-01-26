@@ -9,7 +9,7 @@ export default function CastMembers() {
   // 신랑측 정보 (계좌 3개)
   const groom = { 
     name: "고민성", 
-    image: "/images/cast-groom.png", 
+    image: "https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/cast-groom.png", 
     father: "고영학", 
     mother: "이미경",
     relation: "아들",
@@ -23,7 +23,7 @@ export default function CastMembers() {
   // 신부측 정보 (계좌 2개)
   const bride = { 
     name: "하세진", 
-    image: "/images/cast-bride.png", 
+    image: "https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/cast-bride.png", 
     father: "하인환", 
     mother: "임종현",
     relation: "딸",

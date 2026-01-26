@@ -44,7 +44,7 @@ export default function WeddingDetailsModal({ isOpen, onClose }: WeddingDetailsM
         {/* Thumbnail Area */}
         <div className="relative aspect-video w-full">
             <Image
-                src="/wedding-images/GWA03358.jpg"
+                src="https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/GWA03358.jpg"
                 alt="Wedding Still"
                 fill
                 className="object-cover opacity-90"

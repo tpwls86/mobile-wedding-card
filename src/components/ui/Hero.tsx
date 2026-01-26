@@ -12,7 +12,7 @@ export default function Hero() {
       <div className="absolute inset-0">
         {/* Using standard img tag to debug loading issues with large files */}
         <img
-          src="/images/hero-main.jpg"
+          src="https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/hero_main.jpg"
           alt="Wedding Couple"
           className="w-full h-full object-cover opacity-80"
         />

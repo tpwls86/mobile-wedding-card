@@ -6,21 +6,21 @@ export default function Episodes() {
       id: 1,
       title: "The First Date",
       desc: "It all started with a cold brew and a conversation that lasted five hours.",
-      image: "/images/story-1.jpg",
+      image: "https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/story-1.jpg",
       duration: "20m"
     },
     {
       id: 2,
       title: "The Proposal",
       desc: "High up in the clouds, he finally asked the question. She said yes before he finished.",
-      image: "/images/story-2.jpg",
+      image: "https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/story-2.jpg",
       duration: "45m"
     },
     {
         id: 3,
         title: "Wedding Preparation",
         desc: "Selecting the perfect dress and venue. The journey wasn't easy, but it was worth it.",
-        image: "/images/story-3.jpg",
+        image: "https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/story-3.jpg",
         duration: "32m"
       }
   ];
