@@ -12,18 +12,18 @@ export default function MorePage() {
           <span className="material-symbols-outlined text-[28px]">arrow_back</span>
           <span className="font-bold text-sm">Back</span>
         </Link>
-        <h1 className="text-sm font-black italic tracking-tighter text-primary">MORE</h1>
+        <h1 className="text-sm font-black italic tracking-tighter text-primary">MESSAGE</h1>
         <div className="w-10"></div> {/* Spacer */}
       </header>
 
       {/* Hero Section of More Page */}
-      <div className="px-4 py-8">
-        <h2 className="text-3xl font-black italic mb-2 tracking-tighter uppercase leading-[0.9]">
-            COMING SOON <br/>
-            TO YOUR HEARTS
+      <div className="px-6 py-10">
+        <h2 className="text-2xl font-bold mb-1 tracking-tight">
+            WARMEST <br/>
+            WISHES
         </h2>
-        <p className="text-zinc-500 text-[10px] font-medium uppercase tracking-[0.2em] mt-3">
-            실관람객들이 남긴 생생한 프리미어 기대평
+        <p className="text-zinc-500 text-[11px] font-medium uppercase tracking-wider mt-2">
+            따뜻한 응원의 한마디를 남겨주세요.
         </p>
       </div>
 
@@ -45,7 +45,7 @@ export default function MorePage() {
       </div>
 
       {/* Bottom Navigation (Simplified or just a Home button) */}
-      <nav className="fixed bottom-0 inset-x-0 mx-auto max-w-md z-50 bg-[#121212]/90 backdrop-blur-md border-t border-white/5 px-6 pb-8 pt-2">
+      <nav className="fixed bottom-0 inset-x-0 mx-auto max-w-md z-50 bg-[#121212]/90 backdrop-blur-md border-t border-white/5 px-6 pt-2 pb-[calc(1rem+env(safe-area-inset-bottom,0px))] md:pb-8">
         <div className="flex justify-center">
           <Link className="flex flex-col items-center gap-1 group w-14" href="/">
             <div className="group-active:scale-90 transition-transform">

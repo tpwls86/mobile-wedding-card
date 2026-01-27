@@ -6,6 +6,27 @@ import WeddingDetailsModal from "./WeddingDetailsModal";
 
 export default function Hero() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  const handleShare = async () => {
+    const shareData = {
+      title: '고민성 & 하세진의 결혼식',
+      text: '저희 두 사람의 소중한 시작을 함께하는 자리에 귀한 발걸음 하시어 축복해 주시면 더없는 기쁨으로 간직하겠습니다.',
+      url: window.location.href,
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        await navigator.clipboard.writeText(window.location.href);
+        alert('링크가 클립보드에 복사되었습니다.');
+      }
+    } catch (err) {
+      if ((err as Error).name !== 'AbortError') {
+        console.error('공유 실패:', err);
+      }
+    }
+  };
 
   return (
     <div className="relative w-full h-[85vh] min-h-[600px] overflow-hidden bg-zinc-900" id="home">
@@ -43,6 +64,14 @@ export default function Hero() {
           >
             <span className="material-symbols-outlined text-[24px]">info</span>
             Details
+          </button>
+          
+          <button 
+            onClick={handleShare}
+            className="w-14 flex items-center justify-center bg-zinc-600/70 text-white backdrop-blur-md py-3 rounded-[4px] font-bold text-sm transition-all active:scale-95 hover:bg-zinc-600/90"
+            aria-label="Share"
+          >
+            <span className="material-symbols-outlined text-[24px]">share</span>
           </button>
         </div>
       </div>

@@ -32,7 +32,7 @@ export default function Home() {
       </main>
 
       {/* Bottom Navigation */}
-      <nav className="fixed bottom-0 inset-x-0 mx-auto max-w-[480px] z-[60] bg-[#121212] border-t border-white/5 px-6 pb-8 pt-2">
+      <nav className="fixed bottom-0 inset-x-0 mx-auto max-w-[480px] z-[60] bg-[#121212] border-t border-white/5 px-6 pt-2 pb-[calc(1rem+env(safe-area-inset-bottom,0px))] md:pb-8">
         <div className="flex justify-between items-end px-2">
           <a className="flex flex-col items-center gap-1 group w-14" href="#home">
              <div className="group-active:scale-90 transition-transform">
@@ -45,7 +45,7 @@ export default function Home() {
             <div className="group-active:scale-90 transition-transform">
                 <span className="material-symbols-outlined text-xl text-zinc-500 group-hover:text-white transition-colors">video_library</span>
             </div>
-            <span className="text-[9px] text-zinc-500 group-hover:text-white transition-colors">Our Story</span>
+            <span className="text-[9px] text-zinc-500 group-hover:text-white transition-colors">우리들의 시간</span>
           </a>
 
 

@@ -8,7 +8,6 @@ export const WEDDING_IMAGES = [
   "https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/GWA02316.jpg",
     "https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/GWA02445.jpg",
     "https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/GWA02653.jpg",
-  "https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/GWA03212.jpg",
     "https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/GWA03358.jpg",
   "https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/GWA03905.jpg",
 ];
