@@ -9,6 +9,7 @@ const splineSans = Spline_Sans({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://mobile-web-invitation.vercel.app'),
   title: '고민성 ❤️ 하세진',
   description: '2026년 3월 14일 토요일 오전 11시, 제주 호텔난타. 두 사람의 아름다운 시작을 함께해주세요.',
   openGraph: {
