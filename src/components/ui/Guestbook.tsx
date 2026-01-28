@@ -12,13 +12,7 @@ type GuestbookEntry = {
   created_at: string;
 };
 
-const EMOJIS = [
-  'imoji_cat.png', 
-  'imoji_chick.png', 
-  'imoji_dog.png', 
-  'imoji_owl.png', 
-  'imoji_slime.png'
-];
+const EMOJIS = ['😊', '💍', '💖', '🥂', '✨', '💐'];
 
 export default function Guestbook() {
   const [entries, setEntries] = useState<GuestbookEntry[]>([]);
@@ -150,16 +144,8 @@ export default function Guestbook() {
             <div key={entry.id} className="p-5 bg-zinc-900/60 rounded-2xl border border-white/10 hover:border-primary/30 transition-all duration-300 shadow-sm relative overflow-hidden group">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
-                  <div className="size-8 flex items-center justify-center overflow-hidden">
-                    <img 
-                      src={`/images/imoji/${entry.emoji || 'imoji_cat.png'}`} 
-                      className="w-full h-full object-contain"
-                      alt="profile"
-                      onError={(e) => {
-                          // 텍스트 이모지로 저장된 데이터 대응
-                          (e.target as HTMLImageElement).src = '/images/imoji/imoji_cat.png';
-                      }}
-                    />
+                  <div className="size-8 flex items-center justify-center text-lg">
+                    {entry.emoji || '😊'}
                   </div>
                   <p className="text-xs font-black text-zinc-100 uppercase tracking-tight">
                     {entry.name} <span className="text-zinc-600 font-bold ml-0.5 text-[9px]">관객</span>
@@ -200,14 +186,14 @@ export default function Guestbook() {
         <form onSubmit={(e) => { e.preventDefault(); handleSubmit(); }} className="space-y-5">
             {/* Emoji Selector */}
             <div className="flex justify-between items-center bg-black/40 p-2 rounded-xl border border-white/5 overflow-x-auto no-scrollbar">
-                {EMOJIS.map(filename => (
+                {EMOJIS.map(emoji => (
                     <button
-                        key={filename}
+                        key={emoji}
                         type="button"
-                        onClick={() => setSelectedEmoji(filename)}
-                        className={`size-12 flex-none flex items-center justify-center rounded-lg transition-all ${selectedEmoji === filename ? 'scale-125 border border-white/20' : 'opacity-30 hover:opacity-100'}`}
+                        onClick={() => setSelectedEmoji(emoji)}
+                        className={`size-12 flex-none flex items-center justify-center rounded-lg text-2xl transition-all ${selectedEmoji === emoji ? 'bg-zinc-800 scale-125 border border-white/10' : 'opacity-30 hover:opacity-100'}`}
                     >
-                        <img src={`/images/imoji/${filename}`} className="w-9 h-9 object-contain" alt="emoji option" />
+                        {emoji}
                     </button>
                 ))}
             </div>

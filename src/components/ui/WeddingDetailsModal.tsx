@@ -11,11 +11,29 @@ interface WeddingDetailsModalProps {
 export default function WeddingDetailsModal({ isOpen, onClose }: WeddingDetailsModalProps) {
   const [isLiked, setIsLiked] = useState(false);
   const [isAnimate, setIsAnimate] = useState(false);
+  const [isAddedToList, setIsAddedToList] = useState(false);
+  const [isListAnimate, setIsListAnimate] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const [isShareAnimate, setIsShareAnimate] = useState(false);
+  const [showShareToast, setShowShareToast] = useState(false);
 
   const handleLike = () => {
     setIsLiked(!isLiked);
     setIsAnimate(true);
     setTimeout(() => setIsAnimate(false), 500);
+  };
+
+  const handleListToggle = () => {
+    const nextState = !isAddedToList;
+    setIsAddedToList(nextState);
+    setIsListAnimate(true);
+    
+    if (nextState) {
+        setShowToast(true);
+        setTimeout(() => setShowToast(false), 2000);
+    }
+    
+    setTimeout(() => setIsListAnimate(false), 500);
   };
 
   const handleShare = async () => {
@@ -25,12 +43,18 @@ export default function WeddingDetailsModal({ isOpen, onClose }: WeddingDetailsM
       url: window.location.href,
     };
 
+    setIsShareAnimate(true);
+    setTimeout(() => setIsShareAnimate(false), 500);
+
     try {
       if (navigator.share) {
         await navigator.share(shareData);
+        setShowShareToast(true);
+        setTimeout(() => setShowShareToast(false), 2000);
       } else {
         await navigator.clipboard.writeText(window.location.href);
-        alert('링크가 클립보드에 복사되었습니다.');
+        setShowShareToast(true);
+        setTimeout(() => setShowShareToast(false), 2000);
       }
     } catch (err) {
       if ((err as Error).name !== 'AbortError') {
@@ -54,7 +78,7 @@ export default function WeddingDetailsModal({ isOpen, onClose }: WeddingDetailsM
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-start justify-center px-4 pt-10">
+    <div className="fixed inset-0 z-[100] flex items-start justify-center px-4 pt-[60px]">
       {/* Backdrop - made lighter (60% opacity) */}
       <div 
         className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
@@ -134,9 +158,14 @@ export default function WeddingDetailsModal({ isOpen, onClose }: WeddingDetailsM
 
             {/* Footer Actions */}
             <div className="flex gap-4 text-center">
-                <div className="flex-1 flex flex-col items-center gap-1 cursor-pointer hover:text-white text-zinc-400 transition-colors">
-                    <span className="material-symbols-outlined text-xl">add</span>
-                    <span className="text-[10px]">내 리스트</span>
+                <div 
+                    onClick={handleListToggle}
+                    className={`flex-1 flex flex-col items-center gap-1 cursor-pointer transition-all duration-300 ${isAddedToList ? 'text-white' : 'hover:text-white text-zinc-400'}`}
+                >
+                    <span className={`material-symbols-outlined text-xl transition-transform duration-300 ${isListAnimate ? 'scale-150 -rotate-12' : 'scale-100'} ${isAddedToList ? 'filled' : ''}`}>
+                        {isAddedToList ? 'check' : 'add'}
+                    </span>
+                    <span className="text-[10px]">{isAddedToList ? '리스트됨' : '내 리스트'}</span>
                 </div>
                 <div 
                     onClick={handleLike}
@@ -151,9 +180,25 @@ export default function WeddingDetailsModal({ isOpen, onClose }: WeddingDetailsM
                     onClick={handleShare}
                     className="flex-1 flex flex-col items-center gap-1 cursor-pointer hover:text-white text-zinc-400 transition-colors"
                 >
-                    <span className="material-symbols-outlined text-xl">share</span>
+                    <span className={`material-symbols-outlined text-xl transition-transform duration-500 ${isShareAnimate ? 'scale-150 rotate-[360deg]' : 'scale-100'}`}>
+                        share
+                    </span>
                     <span className="text-[10px]">공유</span>
                 </div>
+            </div>
+            
+            {/* Toasts */}
+            <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex flex-col gap-2 pointer-events-none w-full items-center">
+                {showToast && (
+                    <div className="bg-primary/95 text-white px-4 py-2 rounded-full text-[11px] font-black shadow-lg animate-in fade-in slide-in-from-bottom-4 duration-300">
+                        나의 소중한 리스트에 담겼습니다 ❤️
+                    </div>
+                )}
+                {showShareToast && (
+                    <div className="bg-zinc-100 text-black px-4 py-2 rounded-full text-[11px] font-black shadow-lg animate-in fade-in slide-in-from-bottom-4 duration-300">
+                        초대장 링크가 복사되었습니다! 💌
+                    </div>
+                )}
             </div>
         </div>
       </div>

@@ -5,22 +5,22 @@ export default function Episodes() {
   const episodes = [
     {
       id: 1,
-      title: "The First Date",
-      desc: "It all started with a cold brew and a conversation that lasted five hours.",
+      title: "아랑디는 봄날, 아도록혼 보롬왓에서",
+      desc: "아름다운 봄날, 바람 부는 들판에서",
       image: "https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/story-1.jpg",
       duration: "20m"
     },
     {
       id: 2,
-      title: "The Proposal",
-      desc: "High up in the clouds, he finally asked the question. She said yes before he finished.",
+      title: "과랑과랑혼 벳디 곹이 아장 빙삭이",
+      desc: "쨍쨍한 햇볕 아래 같이 앉아 빙그레",
       image: "https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/story-2.jpg",
       duration: "45m"
     },
     {
         id: 3,
-        title: "Wedding Preparation",
-        desc: "Selecting the perfect dress and venue. The journey wasn't easy, but it was worth it.",
+        title: "펠롱펠롱혼 눈빛으로 소랑한다 고르멍",
+        desc: "반짝반짝한 눈빛으로 사랑한다 말하면서",
         image: "https://fsxmagdvqbyyjapejdxm.supabase.co/storage/v1/object/public/wedding/story-3.jpg",
         duration: "32m"
       }
@@ -28,7 +28,7 @@ export default function Episodes() {
 
   return (
     <section className="mb-8" id="story">
-      <div className="flex justify-between items-end px-4 mb-2">
+      <div className="flex justify-between items-center px-4 mb-2">
         <h3 className="text-white font-bold text-lg">우리들의 시간</h3>
         <Link href="/gallery" className="text-zinc-500 text-[11px] font-black hover:text-primary transition-colors tracking-tighter">
             모두 보기 &gt;

@@ -1,7 +1,31 @@
+'use client';
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import KakaoMap from "./KakaoMap";
 
 export default function EventGrid() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.3 } // 섹션의 30%가 보이면 실행
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   // 2026년 3월 달력 데이터 생성
   // 3월 1일은 일요일(Index 0)
   const daysInMonth = 31;
@@ -20,7 +44,7 @@ export default function EventGrid() {
   const weekDays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
   return (
-    <section className="px-4 mb-20 scroll-mt-20" id="event">
+    <section ref={sectionRef} className="px-4 mb-20 scroll-mt-20" id="event">
       <h3 className="text-white font-bold text-lg mb-6 pl-1 border-l-4 border-primary leading-none">상세 내용</h3>
       
       <div className="space-y-8">
@@ -51,7 +75,23 @@ export default function EventGrid() {
                                 {day && (
                                     <>
                                         {isWeddingDay && (
-                                            <div className="absolute inset-0 m-1 bg-red-600 rounded-full opacity-80 animate-pulse"></div>
+                                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-10 flex flex-col items-center justify-center pointer-events-none">
+                                                <svg className="w-full h-full -rotate-12 absolute inset-0" viewBox="0 0 100 100">
+                                                    <circle 
+                                                        cx="50" cy="50" r="40" 
+                                                        fill="none" 
+                                                        stroke="#ffc1cc" 
+                                                        strokeWidth="6" 
+                                                        strokeLinecap="round"
+                                                        strokeDasharray="250"
+                                                        strokeDashoffset="250"
+                                                        className={isVisible ? "animate-circle-draw" : ""}
+                                                    />
+                                                </svg>
+                                                <span className={`text-[7px] font-black text-[#ffabbd] tracking-tighter uppercase mt-12 whitespace-nowrap opacity-0 ${isVisible ? "animate-fade-in-up" : ""}`}>
+                                                    Wedding Day
+                                                </span>
+                                            </div>
                                         )}
                                         <span className={`text-sm relative z-10 font-medium ${
                                             isWeddingDay ? 'text-white font-bold' : 
@@ -71,7 +111,7 @@ export default function EventGrid() {
         {/* WHERE Section */}
         <div className="bg-zinc-900 rounded-xl p-6 border border-white/5">
             <h4 className="text-primary font-bold text-sm tracking-widest mb-2 uppercase">Where</h4>
-            <p className="text-xl font-bold text-white mb-1">호텔난타</p>
+            <p className="text-xl font-bold text-white mb-1">호텔 난타</p>
             <p className="text-zinc-400 text-sm mb-6">제주 제주시 선돌목동길 56-26</p>
 
             {/* Map Placeholder */}

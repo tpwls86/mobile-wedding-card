@@ -4,13 +4,13 @@ import React from 'react';
 
 export default function TransportInfo() {
   const transportData = [
-    {
-      type: '셔틀버스 (Shuttle)',
-      icon: 'airport_shuttle',
-      details: [
-        '호텔 셔틀: 공항에서 00시 출발'
-      ]
-    },
+    // {
+    //   type: '셔틀버스 (Shuttle)',
+    //   icon: 'airport_shuttle',
+    //   details: [
+    //     '호텔 셔틀: 공항에서 00시 출발'
+    //   ]
+    // },
     {
       type: '대중교통 (Bus)',
       icon: 'directions_bus',
@@ -20,11 +20,11 @@ export default function TransportInfo() {
       ]
     },
     {
-      type: '자가용/주차 (Parking)',
+      type: '주차 (Parking)',
       icon: 'local_parking',
       details: [
         '한라산CC 맞은편 (별빛누리공원 앞)',
-        '호텔 야외 주차장 및 별빛누리공원 이용 가능',
+        '호텔 야외 주차장',
       ]
     }
   ];
