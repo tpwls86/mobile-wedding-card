@@ -54,7 +54,7 @@ export default function Episodes() {
                     {ep.duration}
                 </div>
             </div>
-            <h4 className="font-bold text-sm text-zinc-100 mb-0.5 leading-tight">{ep.title}</h4>
+            <h4 className="font-gowun font-bold text-[14px] text-zinc-100 mb-0.5 leading-tight tracking-tight">{ep.title}</h4>
             <p className="text-zinc-500 text-[10px] leading-snug line-clamp-2">{ep.desc}</p>
           </div>
         ))}

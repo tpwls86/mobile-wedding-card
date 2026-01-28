@@ -6,6 +6,9 @@
   --color-surface: #141414;
   --color-netflix-red: #e50914;
   --font-display: var(--font-spline-sans), sans-serif;
+  --font-gowun: 'Gowun Batang', serif;
+  --font-handwriting: 'Nanum Pen Script', cursive;
+  --font-myeongjo: 'Nanum Myeongjo', serif;
 }
 
 @layer utilities {

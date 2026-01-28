@@ -51,6 +51,7 @@ export default function RootLayout({
     <html lang="ko" className="dark" suppressHydrationWarning>
       <head>
           <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+          <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet" />
       </head>
       <body className={`${splineSans.variable} font-display bg-black text-white selection:bg-primary/30`}>
         {children}
